@@ -47,7 +47,7 @@ class MainScreen extends StatelessWidget {
                 Icons.bar_chart_outlined,
                 color: Theme.of(context).brightness == Brightness.light ? AppTheme.textLight : Colors.grey[400],
               ),
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, RouteNames.statistics),
             ),
             IconButton(
               icon: Icon(

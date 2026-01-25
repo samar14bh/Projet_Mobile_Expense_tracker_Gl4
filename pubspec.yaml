@@ -43,6 +43,13 @@ dependencies:
   firebase_storage: ^11.7.7
   shared_preferences: ^2.5.4
   timezone: ^0.9.4
+  open_filex: ^4.4.0
+  pdf: ^3.11.3
+  printing: ^5.13.1
+  
+  # Security & Privacy
+  local_auth: ^2.1.8
+  flutter_secure_storage: ^9.2.2
 
 dev_dependencies:
   flutter_test:

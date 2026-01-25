@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_provider.dart';
 import 'core/routes/app_routes.dart';
 import 'core/services/notification_service.dart';
+import 'core/services/security_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'data/datasources/seed_data.dart';
 import 'presentation/screens/main_screen.dart';
+import 'presentation/screens/lock_screen.dart';
+import 'presentation/screens/onboarding_screen.dart';
+import 'presentation/providers/security_providers.dart';
+import 'presentation/widgets/secure_app_wrapper.dart'; // import the new file
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,11 +45,16 @@ void main() async {
     debugPrint("Notification initialization error: $e");
   }
 
-  runApp(const ProviderScope(child: ExpenseTrackerApp()));
+  final prefs = await SharedPreferences.getInstance();
+  final isOnboardingComplete = prefs.getBool('onboarding_complete') ?? false;
+
+  runApp(ProviderScope(child: ExpenseTrackerApp(isOnboardingComplete: isOnboardingComplete)));
 }
 
 class ExpenseTrackerApp extends ConsumerWidget {
-  const ExpenseTrackerApp({super.key});
+  final bool isOnboardingComplete;
+
+  const ExpenseTrackerApp({super.key, required this.isOnboardingComplete});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -54,7 +65,7 @@ class ExpenseTrackerApp extends ConsumerWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeMode,
-      home: const MainScreen(),
+      home: isOnboardingComplete ? const SecureAppWrapper() : const OnboardingScreen(),
       onGenerateRoute: AppRoutes.generateRoute,
     );
   }
