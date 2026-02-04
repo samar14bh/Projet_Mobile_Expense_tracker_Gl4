@@ -146,7 +146,27 @@ flutter build appbundle --release
 flutter build ios --release
 ```
 
-## 🔧 Configuration
+## � Screenshots
+
+### App Logo
+<p align="center">
+  <img src="assets/images/app_icon.png" alt="Expense Tracker Logo" width="200"/>
+</p>
+
+### Home Screen
+<p align="center">
+  <img src="assets/images/home_screen.jpg" alt="Home Screen" width="300"/>
+</p>
+
+The home screen displays:
+- **Current Balance** with beautiful gradient card
+- **Income & Expenses** summary for the month
+- **Monthly Budget Limit** tracking
+- **Recent Transactions** with category icons
+- Quick navigation with bottom tabs
+- Dark/Light theme toggle
+
+## �🔧 Configuration
 
 ### App Icon
 The app uses `flutter_launcher_icons` for generating app icons. To update:
