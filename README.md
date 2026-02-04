@@ -146,7 +146,7 @@ flutter build appbundle --release
 flutter build ios --release
 ```
 
-## � Screenshots
+##  Screenshots
 
 ### App Logo
 <p align="center">
@@ -155,7 +155,7 @@ flutter build ios --release
 
 ### Home Screen
 <p align="center">
-  <img src="assets/images/home_screen.jpg" alt="Home Screen" width="300"/>
+  <img src="assets/images/screenshots/home_screen.jpg" alt="Home Screen" width="300"/>
 </p>
 
 The home screen displays:
