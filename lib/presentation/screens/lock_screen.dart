@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../core/services/security_service.dart';
 import '../providers/security_providers.dart';
 
 class LockScreen extends ConsumerStatefulWidget {

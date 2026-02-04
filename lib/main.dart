@@ -5,15 +5,11 @@ import 'core/theme/app_theme.dart';
 import 'core/theme/theme_provider.dart';
 import 'core/routes/app_routes.dart';
 import 'core/services/notification_service.dart';
-import 'core/services/security_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'data/datasources/seed_data.dart';
-import 'presentation/screens/main_screen.dart';
-import 'presentation/screens/lock_screen.dart';
 import 'presentation/screens/onboarding_screen.dart';
-import 'presentation/providers/security_providers.dart';
-import 'presentation/widgets/secure_app_wrapper.dart'; // import the new file
+import 'presentation/widgets/secure_app_wrapper.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

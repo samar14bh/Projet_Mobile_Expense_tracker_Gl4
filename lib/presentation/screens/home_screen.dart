@@ -1,8 +1,6 @@
-import 'dart:io';
 import 'package:expense_tracker/presentation/widgets/summary_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import '../providers/expense_providers.dart';
 import '../providers/budget_providers.dart';
 import '../providers/category_providers.dart';
@@ -27,12 +25,7 @@ class HomeScreen extends ConsumerWidget {
         ref.invalidate(currentMonthBudgetProvider);
         ref.invalidate(allExpensesProvider);
         ref.invalidate(allCategoriesProvider);
-        // Wait for providers to refresh is automatic since Riverpod handles async invalidation gracefully,
-        // but explicit waiting might be needed if we want the spinner to stay until data is fresh.
-        // For simplicity with FutureProviders, simple invalidation triggers a reload.
-        // To show the loading indicator during the reload, we can await the future of the providers.
-        // However, ref.invalidate returns void. ref.refresh returns the new state.
-        // Let's us ref.refresh to ensure we wait for the new data.
+      
         await Future.wait([
           ref.refresh(currentMonthExpensesProvider.future),
           ref.refresh(currentMonthBudgetProvider.future),
@@ -40,7 +33,7 @@ class HomeScreen extends ConsumerWidget {
         ]);
       },
       child: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(), // Ensure scroll even if content is short
+        physics: const AlwaysScrollableScrollPhysics(), 
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
@@ -48,7 +41,6 @@ class HomeScreen extends ConsumerWidget {
             children: [
               const SizedBox(height: 20),
               
-              // Total Balance / Expenses Card
               expensesTotalAsync.when(
                 data: (expenseTotal) => budgetAsync.when(
                   data: (budget) {
@@ -71,7 +63,6 @@ class HomeScreen extends ConsumerWidget {
               
               const SizedBox(height: 24),
               
-              // Monthly Budget Summary
               budgetAsync.when(
                 data: (budget) => SummaryCard(
                   title: 'Monthly Budget Limit',
@@ -84,7 +75,6 @@ class HomeScreen extends ConsumerWidget {
               
               const SizedBox(height: 30),
               
-              // Transactions Header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -104,7 +94,6 @@ class HomeScreen extends ConsumerWidget {
               
               const SizedBox(height: 10),
               
-              // Real-time Transaction List
               expensesListAsync.when(
                 data: (expenses) {
                   if (expenses.isEmpty) {
@@ -116,7 +105,6 @@ class HomeScreen extends ConsumerWidget {
                     );
                   }
   
-                  // Sort by date descending
                   final sortedExpenses = [...expenses]..sort((a, b) => b.date.compareTo(a.date));
   
                   return categoriesAsync.when(

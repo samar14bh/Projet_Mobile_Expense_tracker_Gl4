@@ -32,7 +32,7 @@ class ExpenseModel extends Expense {
         'receiptPath': receiptPath,
       };
 
-  // ✅ Convert Entity -> Model
+  // Convert Entity -> Model
   factory ExpenseModel.fromEntity(Expense entity) {
     return ExpenseModel(
       id: entity.id,
@@ -44,7 +44,7 @@ class ExpenseModel extends Expense {
     );
   }
 
-  // ✅ Convert Model -> Entity
+  // Convert Model -> Entity
   Expense toEntity() {
     return Expense(
       id: id,

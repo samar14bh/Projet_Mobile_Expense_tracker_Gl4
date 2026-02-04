@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../core/routes/route_names.dart';
-import 'main_screen.dart'; // fallback if navigation replacement is tricky
-import 'lock_screen.dart'; // if needed, but we likely nav to keys
 import '../../presentation/widgets/secure_app_wrapper.dart';
 
 class OnboardingScreen extends StatefulWidget {

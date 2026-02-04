@@ -1,6 +1,5 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
-import '../../models/category_model.dart';
 import '../app_database.dart';
 import '../../../domain/entities/statistics.dart';
 

@@ -9,14 +9,12 @@ import '../providers/statistics_provider.dart';
 import '../../core/services/export_service.dart';
 import 'package:open_filex/open_filex.dart';
 import '../../domain/entities/statistics.dart';
-import '../../core/theme/app_theme.dart';
 class StatisticsScreen extends ConsumerWidget {
   const StatisticsScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedMonth = ref.watch(selectedMonthProvider);
-    final theme = Theme.of(context);
     
     return DefaultTabController(
       length: 4,

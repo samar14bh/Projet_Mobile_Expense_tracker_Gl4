@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../core/services/security_service.dart';
 import '../providers/security_providers.dart';
 import '../screens/lock_screen.dart';
 import '../screens/main_screen.dart';

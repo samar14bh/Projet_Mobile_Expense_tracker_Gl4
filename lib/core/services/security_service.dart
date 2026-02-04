@@ -3,7 +3,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Service to manage app lock, PIN, biometric authentication, and privacy mode.
 class SecurityService {
   static const _keyAppLockEnabled = 'app_lock_enabled';
   static const _keyAuthMethod = 'auth_method'; // 'pin', 'biometric', 'both'

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/security_providers.dart';
-import '../../core/services/security_service.dart';
 
 /// A widget that wraps sensitive content and masks it when privacy mode is enabled.
 /// Users can tap-and-hold to temporarily reveal the content using biometric authentication.

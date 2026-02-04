@@ -11,7 +11,6 @@ class NotificationPreferences {
   static const String _keyWeeklySummaryHour = 'weekly_summary_hour';
   static const String _keyWeeklySummaryMinute = 'weekly_summary_minute';
 
-  // Daily Reminder
   Future<bool> getDailyReminderEnabled() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool(_keyDailyReminder) ?? false;
@@ -63,7 +62,6 @@ class NotificationPreferences {
     await prefs.setInt(_keyBudgetThreshold, threshold);
   }
 
-  // Weekly Summary
   Future<bool> getWeeklySummaryEnabled() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool(_keyWeeklySummary) ?? false;
